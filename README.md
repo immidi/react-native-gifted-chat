@@ -118,6 +118,7 @@ See [example/App.js](example/App.js)
 - **`renderSend`** _(Function)_ - render the send button
 - **`renderAccessory`** _(Function)_ - renders a second line of actions below the message composer
 - **`bottomOffset`** _(Integer)_ - distance of the chat from the bottom of the screen, useful if you display a tab bar
+- **`dateFormat`** _(String)_ - format of moment date display (see [http://momentjs.com/docs/#displaying-format]). Defaults to `ll`.
 
 
 ## Features
@@ -127,7 +128,7 @@ See [example/App.js](example/App.js)
 - Load earlier messages
 - Avatar as initials
 - Touchable links using [react-native-parsed-text](https://github.com/taskrabbit/react-native-parsed-text)
-- Localized dates
+- Localized dates and custom date formatting
 - Copy text messages to clipboard
 
 
