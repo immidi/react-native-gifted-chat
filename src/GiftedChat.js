@@ -497,6 +497,7 @@ GiftedChat.defaultProps = {
   user: {},
   bottomOffset: 0,
   isLoadingEarlier: false,
+  dateFormat: 'll',
 };
 
 GiftedChat.propTypes = {
@@ -526,6 +527,7 @@ GiftedChat.propTypes = {
   user: React.PropTypes.object,
   bottomOffset: React.PropTypes.number,
   isLoadingEarlier: React.PropTypes.bool,
+  dateFormat: React.PropTypes.string,
 };
 
 export {

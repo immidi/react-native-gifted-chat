@@ -14,7 +14,7 @@ export default class Day extends React.Component {
         <View style={[styles.container, this.props.containerStyle]}>
           <View style={[styles.wrapper, this.props.wrapperStyle]}>
             <Text style={[styles.text, this.props.textStyle]}>
-              {moment(this.props.currentMessage.createdAt).locale(this.context.getLocale()).format('ll').toUpperCase()}
+              {moment(this.props.currentMessage.createdAt).locale(this.context.getLocale()).format(this.props.dateFormat).toUpperCase()}
             </Text>
           </View>
         </View>
@@ -70,4 +70,5 @@ Day.propTypes = {
   containerStyle: View.propTypes.style,
   wrapperStyle: View.propTypes.style,
   textStyle: Text.propTypes.style,
+  dateFormat: React.PropTypes.string,
 };
