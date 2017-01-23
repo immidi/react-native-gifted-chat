@@ -8,9 +8,9 @@ import {
 } from 'react-native';
 
 import ActionSheet from '@exponent/react-native-action-sheet';
-import dismissKeyboard from 'react-native-dismiss-keyboard';
 import moment from 'moment/min/moment-with-locales.min';
 
+import * as utils from './utils';
 import Actions from './Actions';
 import Avatar from './Avatar';
 import Bubble from './Bubble';
@@ -54,9 +54,6 @@ class GiftedChat extends React.Component {
       isInitialized: false, // initialization will calculate maxHeight before rendering the chat
     };
 
-    this.onTouchStart = this.onTouchStart.bind(this);
-    this.onTouchMove = this.onTouchMove.bind(this);
-    this.onTouchEnd = this.onTouchEnd.bind(this);
     this.onKeyboardWillShow = this.onKeyboardWillShow.bind(this);
     this.onKeyboardWillHide = this.onKeyboardWillHide.bind(this);
     this.onKeyboardDidShow = this.onKeyboardDidShow.bind(this);
@@ -67,10 +64,7 @@ class GiftedChat extends React.Component {
 
     this.invertibleScrollViewProps = {
       inverted: true,
-      keyboardShouldPersistTaps: true,
-      onTouchStart: this.onTouchStart,
-      onTouchMove: this.onTouchMove,
-      onTouchEnd: this.onTouchEnd,
+      keyboardShouldPersistTaps: this.props.keyboardShouldPersistTaps,
       onKeyboardWillShow: this.onKeyboardWillShow,
       onKeyboardWillHide: this.onKeyboardWillHide,
       onKeyboardDidShow: this.onKeyboardDidShow,
@@ -262,22 +256,6 @@ class GiftedChat extends React.Component {
       y: 0,
       animated,
     });
-  }
-
-  onTouchStart() {
-    this._touchStarted = true;
-  }
-
-  onTouchMove() {
-    this._touchStarted = false;
-  }
-
-  // handle Tap event to dismiss keyboard
-  onTouchEnd() {
-    if (this._touchStarted === true) {
-      dismissKeyboard();
-    }
-    this._touchStarted = false;
   }
 
   renderMessages() {
@@ -477,6 +455,10 @@ GiftedChat.defaultProps = {
     ios: true,
     android: false,
   }),
+  keyboardShouldPersistTaps: Platform.select({
+    ios: 'never',
+    android: 'always',
+  }),
   renderAccessory: null,
   renderActions: null,
   renderAvatar: null,
@@ -528,6 +510,7 @@ GiftedChat.propTypes = {
   bottomOffset: React.PropTypes.number,
   isLoadingEarlier: React.PropTypes.bool,
   dateFormat: React.PropTypes.string,
+  keyboardShouldPersistTaps: React.PropTypes.oneOf(['always', 'never', 'handled']),
 };
 
 export {
@@ -544,4 +527,5 @@ export {
   Message,
   Send,
   Time,
+  utils
 };
