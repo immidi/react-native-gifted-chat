@@ -522,11 +522,8 @@ GiftedChat.propTypes = {
   user: React.PropTypes.object,
   bottomOffset: React.PropTypes.number,
   isLoadingEarlier: React.PropTypes.bool,
-<<<<<<< HEAD
   dateFormat: React.PropTypes.string,
-=======
   messageIdGenerator: React.PropTypes.func,
->>>>>>> upstream/master
   keyboardShouldPersistTaps: React.PropTypes.oneOf(['always', 'never', 'handled']),
 };
 
