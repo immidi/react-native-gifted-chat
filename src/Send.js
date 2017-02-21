@@ -14,7 +14,7 @@ export default class Send extends React.Component {
   //   return false;
   // }
   render() {
-    if (this.props.text.trim().length > 0) {
+    if (!this.props.hideSendButtonOnEmptyText || this.props.text.trim().length > 0) {
       return (
         <TouchableOpacity
           style={[styles.container, this.props.containerStyle]}
@@ -53,6 +53,7 @@ Send.defaultProps = {
   label: 'Send',
   containerStyle: {},
   textStyle: {},
+  hideSendButtonOnEmptyText: true,
 };
 
 Send.propTypes = {
@@ -61,4 +62,5 @@ Send.propTypes = {
   label: React.PropTypes.string,
   containerStyle: View.propTypes.style,
   textStyle: Text.propTypes.style,
+  hideSendButtonOnEmptyText: React.PropTypes.bool,
 };
