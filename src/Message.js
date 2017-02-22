@@ -41,7 +41,7 @@ export default class Message extends React.Component {
   }
 
   renderAvatar() {
-    if (this.props.user._id !== this.props.currentMessage.user._id) {
+    if (this.props.showAvatar && this.props.user._id !== this.props.currentMessage.user._id) {
       const avatarProps = this.getInnerComponentProps();
       return <Avatar {...avatarProps}/>;
     }
@@ -86,6 +86,7 @@ const styles = {
 };
 
 Message.defaultProps = {
+  showAvatar: false,
   renderAvatar: null,
   renderBubble: null,
   renderDay: null,
@@ -98,6 +99,7 @@ Message.defaultProps = {
 };
 
 Message.propTypes = {
+  showAvatar: React.PropTypes.bool,
   renderAvatar: React.PropTypes.func,
   renderBubble: React.PropTypes.func,
   renderDay: React.PropTypes.func,

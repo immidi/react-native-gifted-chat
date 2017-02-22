@@ -5,6 +5,7 @@ import {isSameUser, isSameDay, warnDeprecated} from "./utils";
 
 export default class Avatar extends React.Component {
   renderAvatar() {
+    console.log('ava', this.props.renderAvatar);
     if (this.props.renderAvatar) {
       const {renderAvatar, ...avatarProps} = this.props;
       return this.props.renderAvatar(avatarProps);
