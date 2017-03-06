@@ -125,6 +125,7 @@ See [example/App.js](example/App.js)
 - **`onPressActionButton`** _(Function)_ - callback to perform custom logic when the Action button is pressed (the default `actionSheet` will not be used)
 - **`bottomOffset`** _(Integer)_ - distance of the chat from the bottom of the screen, useful if you display a tab bar
 - **`dateFormat`** _(String)_ - format of moment date display (see [http://momentjs.com/docs/#displaying-format]). Defaults to `ll`.
+- **`getTimeString`** _(Function)_ - a function which takes `createdAt` and `locale` and outputs a string to be rendered at the bottom of the bubble displaying the time of the message.
 - **`listViewProps`** _(Object)_ - extra props to be passed to the [`<ListView>`](https://facebook.github.io/react-native/docs/listview.html), some props can not be override, see the code in `render` method of `MessageContainer` for detail
 - **`keyboardShouldPersistTaps`** _(Enum)_ - determines when the keyboard should stay visible after a tap [`<ScrollView>`](https://facebook.github.io/react-native/docs/scrollview.html)
 - **`onInputTextChanged`** _(Function)_ - function that will be called when input text changes

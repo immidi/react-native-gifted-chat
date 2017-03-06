@@ -12,7 +12,10 @@ export default class Time extends React.Component {
     return (
       <View style={[styles[this.props.position].container, this.props.containerStyle[this.props.position]]}>
         <Text style={[styles[this.props.position].text, this.props.textStyle[this.props.position]]}>
-          {moment(this.props.currentMessage.createdAt).locale(this.context.getLocale()).format('LT')}
+          { this.props.getTimeString ?
+            this.props.getTimeString(this.props.currentMessage.createdAt, this.context.getLocale()) :
+            moment(this.props.currentMessage.createdAt).locale(this.context.getLocale()).format('LT')
+          }
         </Text>
       </View>
     );
@@ -58,16 +61,19 @@ Time.contextTypes = {
 
 Time.defaultProps = {
   position: 'left',
+  chatMessageTimeFormat: 'LT',
   currentMessage: {
     createdAt: null,
   },
   containerStyle: {},
   textStyle: {},
+  getTimeString: null,
 };
 
 Time.propTypes = {
   position: React.PropTypes.oneOf(['left', 'right']),
   currentMessage: React.PropTypes.object,
+  getTimeString: React.PropTypes.func,
   containerStyle: React.PropTypes.shape({
     left: View.propTypes.style,
     right: View.propTypes.style,
