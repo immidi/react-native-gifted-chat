@@ -425,7 +425,7 @@ class GiftedChat extends React.Component {
   }
 
   render() {
-    if (this.state.isInitialized === true) {
+    if (this.state.isInitialized === true && !this.props.loading) {
       return (
         <ActionSheet ref={component => this._actionSheetRef = component}>
           <View style={styles.container} onLayout={this.onMainViewLayout}>
@@ -455,6 +455,7 @@ GiftedChat.childContextTypes = {
 };
 
 GiftedChat.defaultProps = {
+  loading: false,
   messages: [],
   onSend: () => {
   },
@@ -495,6 +496,7 @@ GiftedChat.defaultProps = {
 };
 
 GiftedChat.propTypes = {
+  loading: React.PropTypes.bool,
   messages: React.PropTypes.array,
   onSend: React.PropTypes.func,
   onInputTextChanged: React.PropTypes.func,

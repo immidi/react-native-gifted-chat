@@ -103,6 +103,7 @@ See [example/App.js](example/App.js)
 - **`loadEarlier`** _(Bool)_ - enables the load earlier message button
 - **`onLoadEarlier`** _(Function)_ - function to call when loading earlier messages
 - **`isLoadingEarlier`** _(Bool)_ - display an ActivityIndicator when loading earlier messages
+- **`loading`** _(Bool)_ - manually set the loading state. The default value is `false`.
 - **`renderLoading`** _(Function)_ - render a loading view when initializing
 - **`renderLoadEarlier`** _(Function)_ - render the load earlier button
 - **`renderAvatar`** _(Function)_ - renders the message avatar
