@@ -156,14 +156,14 @@ class GiftedChat extends React.Component {
   }
 
   getKeyboardHeight() {
-    if (Platform.OS === 'android') {
-      // For android: on-screen keyboard resized main container and has own height.
-      // @see https://developer.android.com/training/keyboard-input/visibility.html
-      // So for calculate the messages container height ignore keyboard height.
-      // return 0;
-    } else {
-      return this._keyboardHeight;
-    }
+    // if (Platform.OS === 'android') {
+    // For android: on-screen keyboard resized main container and has own height.
+    // @see https://developer.android.com/training/keyboard-input/visibility.html
+    // So for calculate the messages container height ignore keyboard height.
+    //   return 0;
+    // } else {
+    return this._keyboardHeight;
+    // }
   }
 
   setBottomOffset(value) {
@@ -291,7 +291,7 @@ class GiftedChat extends React.Component {
     const AnimatedView = this.props.isAnimated === true ? Animated.View : View;
     return (
       <AnimatedView style={{
-        height: this.state.messagesContainerHeight,
+        height: this.state.messagesContainerHeight
       }}>
         <MessageContainer
           {...this.props}
@@ -447,12 +447,15 @@ class GiftedChat extends React.Component {
   }
 
   render() {
+
     if (this.state.isInitialized === true && !this.props.loading) {
       return (
-          <KeyboardAvoidingView behavior="height"  style={styles.container}>
-            {this.renderMessages()}
+        <View style={styles.container}>
+          {this.renderMessages()}
+          <KeyboardAvoidingView behavior="height" contentContainerStyle={styles.keyboardContentContainer} style={styles.inputWrapper}>
             {this.renderInputToolbar()}
           </KeyboardAvoidingView>
+        </View>
       );
     }
     return (
@@ -467,6 +470,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  inputWrapper: {
+    flex: 1,
+    height: 50,
+    backgroundColor: 'green'
+  },
+  keyboardContentContainer: {
+    height: 50,
+    backgroundColor: 'purple',
+  }
 });
 
 GiftedChat.childContextTypes = {
@@ -568,5 +580,5 @@ export {
   Send,
   Time,
   GiftedAvatar,
-  utils
+  utils,
 };
