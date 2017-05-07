@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Animated,
-  InteractionManager,
   Platform,
   StyleSheet,
   View,
@@ -39,6 +38,7 @@ const MIN_COMPOSER_HEIGHT = Platform.select({
 const MAX_COMPOSER_HEIGHT = 100;
 
 class GiftedChat extends React.Component {
+
   constructor(props) {
     super(props);
 
@@ -156,14 +156,14 @@ class GiftedChat extends React.Component {
   }
 
   getKeyboardHeight() {
-    if (Platform.OS === 'android') {
+    // if (Platform.OS === 'android') {
       // For android: on-screen keyboard resized main container and has own height.
       // @see https://developer.android.com/training/keyboard-input/visibility.html
       // So for calculate the messages container height ignore keyboard height.
-      return 0;
-    } else {
+      // return 0;
+    // } else {
       return this._keyboardHeight;
-    }
+    // }
   }
 
   setBottomOffset(value) {
