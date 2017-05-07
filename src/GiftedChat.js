@@ -449,12 +449,10 @@ class GiftedChat extends React.Component {
   render() {
     if (this.state.isInitialized === true && !this.props.loading) {
       return (
-          <View style={styles.container} onLayout={this.onMainViewLayout}>
+          <KeyboardAvoidingView behavior="height"  style={styles.container} onLayout={this.onMainViewLayout}>
             {this.renderMessages()}
-            <KeyboardAvoidingView  behavior="height" style={styles.inputWrapper}>
-              {this.renderInputToolbar()}
-            </KeyboardAvoidingView>
-          </View>
+            {this.renderInputToolbar()}
+          </KeyboardAvoidingView>
       );
     }
     return (
@@ -469,9 +467,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  inputWrapper: {
-    flex: 1,
-  }
 });
 
 GiftedChat.childContextTypes = {
