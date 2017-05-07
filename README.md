@@ -107,8 +107,10 @@ See [example/App.js](example/App.js)
 - **`renderLoading`** _(Function)_ - render a loading view when initializing
 - **`renderLoadEarlier`** _(Function)_ - render the load earlier button
 - **`renderAvatar`** _(Function)_ - renders the message avatar
+- **`onPressAvatar`** _(Function(`user`))_ - callback when a message avatar is tapped
 - **`renderAvatarOnTop`** _(Bool)_ - render the message avatar, on top of consecutive messages. The default value is `false`.
 - **`renderBubble`** _(Function)_ - render the message bubble
+- **`onLongPress`** _(Function(`context`, `message`))_ - callback when a message bubble is long-pressed (default is to show action sheet with "Copy Text"). See code for example using `context.actionSheet().showActionSheetWithOptions()`.
 - **`renderMessage`** _(Function)_ - render the message container
 - **`renderMessageText`** _(Function)_ - render the message text
 - **`renderMessageImage`** _(Function)_ - render the message image
@@ -127,9 +129,11 @@ See [example/App.js](example/App.js)
 - **`bottomOffset`** _(Integer)_ - distance of the chat from the bottom of the screen, useful if you display a tab bar
 - **`dateFormat`** _(String)_ - format of moment date display (see [http://momentjs.com/docs/#displaying-format]). Defaults to `ll`.
 - **`getTimeString`** _(Function)_ - a function which takes `createdAt` and `locale` and outputs a string to be rendered at the bottom of the bubble displaying the time of the message.
+- **`minInputToolbarHeight`** _(Integer)_ - minimum height of the input toolbar. The default value is `44`.
 - **`listViewProps`** _(Object)_ - extra props to be passed to the [`<ListView>`](https://facebook.github.io/react-native/docs/listview.html), some props can not be override, see the code in `render` method of `MessageContainer` for detail
 - **`keyboardShouldPersistTaps`** _(Enum)_ - determines when the keyboard should stay visible after a tap [`<ScrollView>`](https://facebook.github.io/react-native/docs/scrollview.html)
 - **`onInputTextChanged`** _(Function)_ - function that will be called when input text changes
+- **`maxInputLength`** _(Integer)_ - max Composer TextInput length
 
 ## Features
 - Custom components
