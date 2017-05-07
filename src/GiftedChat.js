@@ -449,7 +449,7 @@ class GiftedChat extends React.Component {
   render() {
     if (this.state.isInitialized === true && !this.props.loading) {
       return (
-          <KeyboardAvoidingView behavior="height"  style={styles.container} onLayout={this.onMainViewLayout}>
+          <KeyboardAvoidingView behavior="height"  style={styles.container}>
             {this.renderMessages()}
             {this.renderInputToolbar()}
           </KeyboardAvoidingView>
