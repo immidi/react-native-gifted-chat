@@ -5,6 +5,7 @@ import {
   Platform,
   StyleSheet,
   View,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 import ActionSheet from '@expo/react-native-action-sheet';
@@ -449,10 +450,10 @@ class GiftedChat extends React.Component {
     if (this.state.isInitialized === true && !this.props.loading) {
       return (
         <ActionSheet ref={component => this._actionSheetRef = component}>
-          <View style={styles.container} onLayout={this.onMainViewLayout}>
+          <KeyboardAvoidingView behavior="height" style={styles.container} onLayout={this.onMainViewLayout}>
             {this.renderMessages()}
             {this.renderInputToolbar()}
-          </View>
+          </KeyboardAvoidingView>
         </ActionSheet>
       );
     }
