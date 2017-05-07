@@ -451,7 +451,7 @@ class GiftedChat extends React.Component {
       return (
           <View style={styles.container} onLayout={this.onMainViewLayout}>
             {this.renderMessages()}
-            <KeyboardAvoidingView  behavior="padding" style={styles.inputWrapper}>
+            <KeyboardAvoidingView  behavior="height" style={styles.inputWrapper}>
               {this.renderInputToolbar()}
             </KeyboardAvoidingView>
           </View>
