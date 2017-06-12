@@ -59,7 +59,7 @@ class GiftedChat extends React.Component {
     };
 
     if(props.initialInput) {
-      this.state.initialInput = props.initialInput;
+      this.state.text = props.initialInput;
     }
 
     this.onKeyboardWillShow = this.onKeyboardWillShow.bind(this);
@@ -130,8 +130,6 @@ class GiftedChat extends React.Component {
   initMessages(messages = []) {
     this.setMessages(messages);
   }
-
-
 
   setLocale(locale) {
     this._locale = locale;
