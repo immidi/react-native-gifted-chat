@@ -349,6 +349,7 @@ class GiftedChat extends React.Component {
     const newComposerHeight = MIN_COMPOSER_HEIGHT;
     const newMessagesContainerHeight = this.getMessagesContainerHeightWithKeyboard(newComposerHeight);
     this.setState({
+      text: '',
       composerHeight: newComposerHeight,
       messagesContainerHeight: this.prepareMessagesContainerHeight(newMessagesContainerHeight),
     });
@@ -384,7 +385,6 @@ class GiftedChat extends React.Component {
     GiftedChatInteractionManager.runAfterInteractions(() => {
       this.setState({
         isInitialized: true,
-        text: '',
         composerHeight: newComposerHeight,
         messagesContainerHeight: this.prepareMessagesContainerHeight(newMessagesContainerHeight),
       });
